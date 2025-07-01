@@ -269,3 +269,13 @@ ul, li {
         margin-bottom: 20px;
     }
 }
+
+
+/* help */
+.services-grid-help {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 30px; /* Расстояние между колонками */
+    margin-top: 40px;
+}
+
