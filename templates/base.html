@@ -28,10 +28,10 @@
                 <!-- Колонка 2: Телефон и email -->
                 <div class="col-md-3 col-sm-6 header-column">
                     <div class="header-contact">
-                        <i class="fas fa-phone-alt social-icon"></i>+7 (123) 456-78-90
+                        <i class="fas fa-phone-alt social-icon"></i>+7 (952) 962-19-12
                     </div>
                     <div class="header-contact">
-                        <i class="fas fa-envelope social-icon"></i>info@glavseo.ru
+                        <i class="fas fa-envelope social-icon"></i>glav-expert-union@mail.ru
                     </div>
                 </div>
                 
@@ -113,8 +113,8 @@
                 <h5 class="modal-title" id="consultationModalLabel">Заказать консультацию</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="consultationForm">
+            <form id="consultationForm" action="/send-to-telegram" method="POST">
+                <div class="modal-body">
                     <div class="mb-3">
                         <label for="clientName" class="form-label">Ваше имя *</label>
                         <input type="text" class="form-control" id="clientName" name="name" required>
@@ -128,12 +128,12 @@
                         <textarea class="form-control" id="clientComment" name="comment" rows="3"></textarea>
                     </div>
                     <div class="form-text mb-3">* Поля, обязательные для заполнения</div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                <button type="submit" form="consultationForm" class="btn btn-success">Отправить</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

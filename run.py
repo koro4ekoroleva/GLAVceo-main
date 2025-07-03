@@ -1,5 +1,30 @@
-from flask import Flask, render_template
+from flask import Flask, request, jsonify, render_template
+import requests
+import telebot
 
+bot = telebot.TeleBot("7654476996:AAHF9AzcSWclTnGOavHy-tdqqkrmRf4bihY", parse_mode=None)
+
+app = Flask(__name__)
+
+TELEGRAM_TOKEN = "7654476996:AAHF9AzcSWclTnGOavHy-tdqqkrmRf4bihY"
+TELEGRAM_USERNAME = 'seeLizenka'
+CHAT_ID = '922226528'
+
+@app.route('/send-to-telegram', methods=['POST'])
+def send_to_telegram():
+    try:
+        data = request.form
+        message = f"Новая заявка:\nИмя: {data['name']}\nТелефон: {data['phone']}\nКомментарий: {data['comment']}"
+
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+            json={"chat_id": CHAT_ID, "text": message}
+        )
+
+        return jsonify({"status": "success"})
+
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 app = Flask(__name__)
 menu = [{"name": "Главная", "url": "/"},
     {"name": "Виды экспертиз", "url": ""},
@@ -7,8 +32,6 @@ menu = [{"name": "Главная", "url": "/"},
     {"name": "Партнёры", "url": "partners"},
     {"name": "Документы", "url": "documents"},
     {"name": "О нас", "url": ""}]
-
-
 
 @app.route("/")
 def index():
@@ -27,4 +50,6 @@ def documents():
     return render_template('documents.html', title="Документы", menu=menu)
 
 if __name__ == "__main__":
+    bot.remove_webhook()
+    bot.polling()
     app.run(debug=True)

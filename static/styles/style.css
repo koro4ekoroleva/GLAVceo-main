@@ -300,3 +300,24 @@ ul, li {
 .help-h3{
     text-align: center;
 }
+
+/* Альтернативный вариант с flex */
+.row.align-items-center {
+    align-items: flex-start !important; /* Изменяем выравнивание по вертикали */
+}
+
+.bulb-img {
+    width: 300px;
+    margin-top: -40px; /* Регулируйте это значение по необходимости */
+
+    @media (max-width: 991px) {
+        width: 200px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.highlight-title {
+    margin-top: 0;
+    padding-top: 0;
+}
