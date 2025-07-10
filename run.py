@@ -29,7 +29,6 @@ def send_to_telegram():
         message = f"Новая заявка:\nИмя: {data['name']}\nТелефон: {data['phone']}\nКомментарий: {data['comment']}"
 
         bot.send_message(CHAT_ID, message)
-        return jsonify({"status": "success"})
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
