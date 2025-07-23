@@ -28,10 +28,24 @@ def send_to_telegram():
         data = request.form
         message = f"Новая заявка:\nИмя: {data['name']}\nТелефон: {data['phone']}\nКомментарий: {data['comment']}"
 
+        # Отправляем сообщение через бота
         bot.send_message(CHAT_ID, message)
 
+        # Возвращаем JSON-ответ об успехе
+        return jsonify({
+            "status": "success",
+            "message": "Заявка успешно отправлена"
+        })
+
     except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+        # Логируем ошибку
+        print(f"Ошибка при отправке в Telegram: {str(e)}")
+
+        # Возвращаем JSON-ответ об ошибке
+        return jsonify({
+            "status": "error",
+            "message": "Произошла ошибка при отправке"
+        }), 500
 
 
 # Маршруты сайта
