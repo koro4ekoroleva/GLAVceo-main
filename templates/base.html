@@ -149,22 +149,43 @@ document.getElementById('consultationModal').addEventListener('show.bs.modal', f
 // Дополнительно: обработка успешной отправки
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch(this.action, {
+
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+
+    // Показываем индикатор загрузки
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Отправка...';
+
+    fetch(form.action, {
         method: 'POST',
-        body: new FormData(this)
+        body: new FormData(form)
     })
     .then(response => response.json())
     .then(data => {
         if(data.status === 'success') {
-            // Закрываем модальное окно после успешной отправки
-            bootstrap.Modal.getInstance(document.getElementById('consultationModal')).hide();
-            // Показываем уведомление
+            // Успешная отправка
+            const modal = bootstrap.Modal.getInstance(document.getElementById('consultationModal'));
+            modal.hide();
+
+            // Показываем всплывающее уведомление
             alert('Ваша заявка принята! Мы свяжемся с вами в ближайшее время.');
+
+            // Очищаем форму
+            form.reset();
+        } else {
+            throw new Error(data.message || 'Неизвестная ошибка');
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Ошибка:', error);
         alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+    })
+    .finally(() => {
+        // Восстанавливаем кнопку
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
     });
 });
 </script>
