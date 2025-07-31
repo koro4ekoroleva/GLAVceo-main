@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+    <section class="expertise-section">
+        <div class="container">
+            <h1 class="section-title">Виды экспертиз</h1>
+
+            <div class="expertise-grid">
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Автотехнические экспертизы" data-subcategories="Обстоятельства ДТП,Техническое состояние ТС,Следы столкновения при ДТП,Маркировка ТС">
+                    <div class="card-body">
+                        <h3 class="card-title">Автотехнические</h3>
+                        <p class="card-text">Экспертизы транспортных средств и дорожно-транспортных происшествий</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Биологические экспертизы" data-subcategories="Биологическая,ДНК,Исследование шерсти и волос">
+                    <div class="card-body">
+                        <h3 class="card-title">Биологические</h3>
+                        <p class="card-text">Исследование биологических материалов и следов</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Компьютерные экспертизы" data-subcategories="Компьютерная,IT-исследования">
+                    <div class="card-body">
+                        <h3 class="card-title">Компьютерные</h3>
+                        <p class="card-text">Анализ цифровых данных и компьютерных систем</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Лингвистические экспертизы" data-subcategories="Лингвистическая,Фоноскопическая,Техническое исследование фонограмм,Автороведческая">
+                    <div class="card-body">
+                        <h3 class="card-title">Лингвистические</h3>
+                        <p class="card-text">Анализ текстов и речевых материалов</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Медицинские экспертизы" data-subcategories="Судебно-медицинская,Полиграф,Санитарно-эпидемиологическая,Психологическая">
+                    <div class="card-body">
+                        <h3 class="card-title">Медицинские</h3>
+                        <p class="card-text">Исследования в области медицины и здоровья</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Оценочные экспертизы" data-subcategories="ТС,Недвижимости,Бизнеса">
+                    <div class="card-body">
+                        <h3 class="card-title">Оценка</h3>
+                        <p class="card-text">Определение стоимости различных объектов</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Строительные экспертизы" data-subcategories="Объекты,Дороги,Смета и материалы,Землеустроительная">
+                    <div class="card-body">
+                        <h3 class="card-title">Строительные</h3>
+                        <p class="card-text">Анализ строительных объектов и материалов</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Технические экспертизы" data-subcategories="Взрывотехническая,Пожаротехническая,Радиотехническая,Фототехническая,Видеотехническая">
+                    <div class="card-body">
+                        <h3 class="card-title">Технические</h3>
+                        <p class="card-text">Исследование технических устройств и систем</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Криминалистические экспертизы" data-subcategories="Оружие и боеприпасы,Дактилоскопическая,Портретная,Почерковедческая,Трасологическая,Документы и реквизиты">
+                    <div class="card-body">
+                        <h3 class="card-title">Криминалистические</h3>
+                        <p class="card-text">Анализ вещественных доказательств</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Экономические экспертизы" data-subcategories="Бухгалтерская,Налоговая,Финансовый анализ,Товароведческая,Финансово-кредитная">
+                    <div class="card-body">
+                        <h3 class="card-title">Экономические</h3>
+                        <p class="card-text">Исследование финансово-экономической деятельности</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Экологические экспертизы" data-subcategories="Ботаническая,Лесотехническая,Ихтиологическая,Экологическая,Почвоведческая,Дендрохронологическая">
+                    <div class="card-body">
+                        <h3 class="card-title">Экологические</h3>
+                        <p class="card-text">Анализ состояния окружающей среды</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card" data-bs-toggle="modal" data-bs-target="#expertiseModal" data-title="Физико-химические экспертизы" data-subcategories="Химическая,Спецвещества,Волокна,Лакокрасочные материалы и покрытия,Маркировочные обозначения,Металлы и сплавы,Горюче-смазочные материалы,Продукты выстрела,Стекло и керамика,Полимеры,Материалы письма,Давность документов,Спиртосодержащие жидкости,Пищевые продукты">
+                    <div class="card-body">
+                        <h3 class="card-title">Физико-химические</h3>
+                        <p class="card-text">Анализ веществ и материалов</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно с подкатегориями -->
+    <div class="modal fade" id="expertiseModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="expertiseModalLabel">Подкатегории экспертиз</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-subcategories">
+                    <ul class="list-group" id="subcategoriesList">
+                        <!-- Сюда будут добавляться подкатегории через JavaScript -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn consultation-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">
+                    Бесплатная консультация
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Обработка открытия модального окна
+        document.getElementById('expertiseModal').addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const title = button.getAttribute('data-title');
+            const subcategories = button.getAttribute('data-subcategories').split(',');
+
+            // Устанавливаем заголовок
+            document.getElementById('expertiseModalLabel').textContent = title;
+
+            // Очищаем список
+            const list = document.getElementById('subcategoriesList');
+            list.innerHTML = '';
+
+            // Добавляем подкатегории
+            subcategories.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = item.trim();
+                list.appendChild(li);
+            });
+        });
+
+        document.getElementById('expertiseModal').addEventListener('hidden.bs.modal', function() {
+        const expertiseTitle = document.getElementById('expertiseModalLabel').textContent;
+        const commentField = document.getElementById('clientComment');
+        if (commentField) {
+            commentField.value = `Интересует экспертиза: ${expertiseTitle}`;
+        }
+    });
+        // Закрываем модальное окно экспертиз при открытии консультации
+    document.querySelector('#expertiseModal .consultation-btn').addEventListener('click', function() {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('expertiseModal'));
+        modal.hide();
+    });
+    </script>
+{% endblock %}

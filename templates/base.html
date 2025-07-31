@@ -73,19 +73,19 @@
                                     {{m.name}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                    <li><a class="dropdown-item" href="#">Автотехнические</a></li>
-                                    <li><a class="dropdown-item" href="#">Биологические</a></li>
-                                    <li><a class="dropdown-item" href="#">Землеустроительная</a></li>
-                                    <li><a class="dropdown-item" href="#">Компьютерные</a></li>
-                                    <li><a class="dropdown-item" href="#">Лингвистические</a></li>
-                                    <li><a class="dropdown-item" href="#">Медицинские</a></li>
-                                    <li><a class="dropdown-item" href="#">Оценка</a></li>
-                                    <li><a class="dropdown-item" href="#">Строительные</a></li>
-                                    <li><a class="dropdown-item" href="#">Технические</a></li>
-                                    <li><a class="dropdown-item" href="#">Криминалистические</a></li>
-                                    <li><a class="dropdown-item" href="#">Экономические</a></li>
-                                    <li><a class="dropdown-item" href="#">Экологические</a></li>
-                                    <li><a class="dropdown-item" href="#">Физико-химические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Автотехнические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Биологические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Землеустроительная</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Компьютерные</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Лингвистические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Медицинские</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Оценка</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Строительные</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Технические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Криминалистические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Экономические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Экологические</a></li>
+                                    <li><a class="dropdown-item" href="{{m.url}}">Физико-химические</a></li>
                                 </ul>
                             </li>
                         {% else %}
@@ -146,10 +146,8 @@ document.getElementById('consultationModal').addEventListener('show.bs.modal', f
     document.getElementById('consultationForm').reset();
 });
 
-// Дополнительно: обработка успешной отправки
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerHTML;
