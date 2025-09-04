@@ -109,51 +109,70 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn consultation-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">
-                    Бесплатная консультация
-                </button>
-            </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn consultation-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">
+                        Бесплатная консультация
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Скрипты -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Обработка открытия модального окна
-        document.getElementById('expertiseModal').addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget;
-            const title = button.getAttribute('data-title');
-            const subcategories = button.getAttribute('data-subcategories').split(',');
+    // Обработчик для модального окна экспертиз
+    document.addEventListener('DOMContentLoaded', function() {
+        const expertiseModal = document.getElementById('expertiseModal');
 
-            // Устанавливаем заголовок
-            document.getElementById('expertiseModalLabel').textContent = title;
+        if (expertiseModal) {
+            expertiseModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const title = button.getAttribute('data-title');
+                const subcategories = button.getAttribute('data-subcategories').split(',');
 
-            // Очищаем список
-            const list = document.getElementById('subcategoriesList');
-            list.innerHTML = '';
+                document.getElementById('expertiseModalLabel').textContent = title;
 
-            // Добавляем подкатегории
-            subcategories.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'list-group-item';
-                li.textContent = item.trim();
-                list.appendChild(li);
+                const list = document.getElementById('subcategoriesList');
+                list.innerHTML = '';
+
+                subcategories.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'list-group-item';
+                    li.textContent = item.trim();
+                    list.appendChild(li);
+                });
             });
-        });
 
-        document.getElementById('expertiseModal').addEventListener('hidden.bs.modal', function() {
-        const expertiseTitle = document.getElementById('expertiseModalLabel').textContent;
-        const commentField = document.getElementById('clientComment');
-        if (commentField) {
-            commentField.value = `Интересует экспертиза: ${expertiseTitle}`;
+            // Обработчик для кнопки консультации
+            const consultBtn = expertiseModal.querySelector('.consultation-btn');
+            if (consultBtn) {
+                consultBtn.addEventListener('click', function() {
+                    const modal = bootstrap.Modal.getInstance(expertiseModal);
+                    modal.hide();
+
+                    // Заполняем поле комментария
+                    const expertiseTitle = document.getElementById('expertiseModalLabel').textContent;
+                    const commentField = document.getElementById('clientComment');
+                    if (commentField) {
+                        commentField.value = `Интересует экспертиза: ${expertiseTitle}`;
+                    }
+                });
+            }
         }
-    });
-        // Закрываем модальное окно экспертиз при открытии консультации
-    document.querySelector('#expertiseModal .consultation-btn').addEventListener('click', function() {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('expertiseModal'));
-        modal.hide();
+
+        // Исправление проблемы с серым фоном после закрытия модального окна
+        const consultationModalElement = document.getElementById('consultationModal');
+        if (consultationModalElement) {
+            consultationModalElement.addEventListener('hidden.bs.modal', function() {
+                // Удаляем оставшиеся элементы backdrop
+                const backdrops = document.querySelectorAll('.modal-backdrop');
+                backdrops.forEach(backdrop => backdrop.remove());
+
+                // Восстанавливаем состояние body
+                document.body.classList.remove('modal-open');
+                document.body.style.paddingRight = '';
+                document.body.style.overflow = '';
+            });
+        }
     });
     </script>
 {% endblock %}
