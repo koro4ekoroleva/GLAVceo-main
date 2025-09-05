@@ -377,9 +377,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.expertise-section {
-    padding: 60px 0;
-}
 
 .section-title {
     color: var(--secondary-color);
@@ -574,6 +571,168 @@ body {
     }
 
     .bold-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Соответствие стилям главной страницы */
+.hero-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    color: #343a40;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #F9B000;
+    margin: 15px auto 0;
+}
+
+/* Стили для страницы Партнёры */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки на всех устройствах */
+    gap: 40px; /* Увеличиваем расстояние между карточками */
+    margin-top: 40px;
+    max-width: 1000px; /* Ограничиваем максимальную ширину */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partner-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 280px; /* Немного увеличиваем высоту */
+    display: flex;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.partner-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.partner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 25px; /* Увеличиваем отступы */
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover .partner-img {
+    transform: scale(1.05);
+}
+
+.partner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover .partner-overlay {
+    transform: translateY(0);
+}
+
+.partner-name {
+    font-weight: 600;
+    font-size: 1.2rem; /* Увеличиваем размер шрифта */
+    display: block;
+    text-align: center;
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.partner-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.partner-card:nth-child(1) { animation-delay: 0.1s; }
+.partner-card:nth-child(2) { animation-delay: 0.2s; }
+.partner-card:nth-child(3) { animation-delay: 0.3s; }
+.partner-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+    .partners-grid {
+        gap: 30px;
+    }
+
+    .partner-card {
+        height: 250px;
+    }
+
+    .partner-img {
+        padding: 20px;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+        gap: 25px;
+        max-width: 400px;
+    }
+
+    .partner-card {
+        height: 220px;
+    }
+
+    .partner-img {
+        padding: 15px;
+    }
+}
+
+/* Для очень маленьких мобильных */
+@media (max-width: 480px) {
+    .partners-grid {
+        gap: 20px;
+    }
+
+    .partner-card {
+        height: 200px;
+    }
+
+    .partner-name {
         font-size: 1.1rem;
     }
 }

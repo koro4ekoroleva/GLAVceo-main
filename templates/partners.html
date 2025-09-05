@@ -2,14 +2,47 @@
 
 {% block content %}
 {{ super() }}
-    <h3 class="section-title">Партнёры</h3>
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="section-title">Партнёры</h1>
 
-<div class="container_partn">
-    <a href="https://collegium-kalita.ru/" target="_blank">
-    <img src="./static/img/Рисунок2.jpg" alt="Изображение 1"></a>
-    <a href="https://aiscontrol.ru/" target="_blank">
-    <img src="./static/img/Рисунок3.jpg" alt="Изображение 2"></a>
-    <img src="./static/img/Рисунок4.jpg" alt="Изображение 3">
-    <img src="./static/img/Рисунок5.jpg" alt="Изображение 4">
-</div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <a href="https://collegium-kalita.ru/" target="_blank" class="partner-link">
+                        <img src="../static/img/Рисунок2.jpg" alt="Коллегиум Калита" class="partner-img">
+                        <div class="partner-overlay">
+                            <span class="partner-name">Коллегиум Калита</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="partner-card">
+                    <a href="https://aiscontrol.ru/" target="_blank" class="partner-link">
+                        <img src="../static/img/Рисунок3.jpg" alt="AIS Control" class="partner-img">
+                        <div class="partner-overlay">
+                            <span class="partner-name">AIS Control</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-link">
+                        <img src="../static/img/Рисунок4.jpg" alt="ГВСУ №14" class="partner-img">
+                        <div class="partner-overlay">
+                            <span class="partner-name">ГВСУ №14</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <a href="https://32.мвд.рф/" target="_blank" class="partner-link">
+                        <img src="../static/img/Рисунок5.jpg" alt="Партнёр 4" class="partner-img">
+                        <div class="partner-overlay">
+                            <span class="partner-name">Управление МВД России по Брянской области</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
