@@ -2,19 +2,27 @@
 
 {% block content %}
 {{ super() }}
-    <div class="text-center"><h1>Документы</h1></div>
-<div class="container_smol">
-    <img src="./static/img/Рисунок11.jpg" alt="Маленькая картинка">
-    <div class="text">
-        <div class="bold-text">Автономная некоммерческая организация «Главное судебно-экспертное объединение» АНО «ГлавСЭО»</div>
-        <div class="normal-text">115054, г. Москва, ул. Большая Пионерская, д.40 стр. 1   тел. +7-960-547-47-27,   +7-952-962-19-12  e-mail:  glav-expert-union@mail.ru</div>
-        <div class="normal-text">ИНН/КПП 7727499145/772701001;  ОГРН 1147799009093</div>
-    </div>
-</div>
-<div class="img">
-    <img src="./static/img/Рисунок6.jpg" alt="Изображение 1">
-    <img src="./static/img/Рисунок7.jpg" alt="Изображение 2">
-</div>
+    <section class="hero-section">
+        <div class="container">
+            <h3 class="section-title">Документы</h3>
+
+            <div class="container_smol">
+                <img src="../static/img/Рисунок11.jpg" alt="Маленькая картинка" class="doc-img-sm">
+                <div class="text">
+                    <div class="bold-text">Автономная некоммерческая организация «Главное судебно-экспертное объединение» АНО «ГлавСЭО»</div>
+                    <div class="normal-text">115054, г. Москва, ул. Большая Пионерская, д.40 стр. 1</div>
+                    <div class="normal-text">тел. +7-960-547-47-27, +7-952-962-19-12</div>
+                    <div class="normal-text">e-mail: glav-expert-union@mail.ru</div>
+                    <div class="normal-text">ИНН/КПП 9705247116/770501001; ОГРН 1257700384985</div>
+                    <div class="normal-text"><a href="../static/docs/Свидетельство.pdf">Свидетельство о постановке на налоговый учёт</a></div>
+                    <div class="normal-text"><a href="../static/docs/Устав.pdf">Устав организации</a></div>
+                </div>
+            </div>
+
+            <div class="doc-images">
+                <img src="../static/img/Рисунок6.jpg" alt="Документ 1" class="doc-img">
+                <img src="../static/img/Рисунок7.jpg" alt="Документ 2" class="doc-img">
+            </div>
+        </div>
+    </section>
 {% endblock %}
-
-

@@ -181,16 +181,67 @@ ul, li {
 }
 
 .bulb-img {
-    max-width: 200%;
+    max-width: 100%;
+    width: 280px;
     height: auto;
-    margin-top: 20px;
+    margin-top: 0;
+    object-fit: contain;
+}
+
+/* Для планшетов (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    .bulb-img {
+        width: 180px; /* Уменьшаем размер для планшетов */
+        margin: 20px auto;
+        display: block;
+    }
+
+    /* Убедимся, что строки складываются правильно */
+    .row.align-items-center {
+        flex-direction: column;
+    }
+
+    .col-md-8 {
+        width: 100%;
+        order: 1; /* Текст сначала */
+    }
+
+    .col-md-4 {
+        width: 100%;
+        order: 2; /* Изображение после текста */
+        text-align: center;
+    }
+}
+
+/* Для мобильных устройств (меньше 768px) */
+@media (max-width: 767px) {
+    .bulb-img {
+        width: 150px;
+        margin: 30px auto;
+        display: block;
+    }
+}
+
+/* Для десктопов (больше 992px) */
+@media (min-width: 992px) {
+    .bulb-img {
+        width: 280px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .col-md-4 {
+        display: flex;
+        align-items: flex-start; /* Выравниваем по верху */
+        justify-content: center;
+    }
 }
 
 @media (max-width: 992px) {
     .services-container {
         flex-direction: column;
     }
-    
+
     .multi-column-list {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -215,6 +266,10 @@ ul, li {
 
 .ano {
     margin-bottom: 150px;
+}
+
+.hero-section .container {
+    position: relative;
 }
 
 /* Стили для сетки услуг */
@@ -301,21 +356,10 @@ ul, li {
     text-align: center;
 }
 
-/* Альтернативный вариант с flex */
 .row.align-items-center {
-    align-items: flex-start !important; /* Изменяем выравнивание по вертикали */
+    align-items: center !important;
 }
 
-.bulb-img {
-    width: 300px;
-    margin-top: -40px; /* Регулируйте это значение по необходимости */
-
-    @media (max-width: 991px) {
-        width: 200px;
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-}
 
 .highlight-title {
     margin-top: 0;
@@ -452,4 +496,106 @@ body {
     border-color: rgb(210, 150, 0);
     color: white;
     box-shadow: 0 0 0 0.25rem rgba(249, 176, 0, 0.5);
+}
+
+/* Стили для страницы Документы */
+.container_smol {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.doc-img-sm {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.bold-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #343a40;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.normal-text {
+    color: #666;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.doc-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.doc-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.doc-img:hover {
+    transform: scale(1.02);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container_smol {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .doc-img-sm {
+        width: 100px;
+        height: 100px;
+    }
+
+    .doc-images {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .bold-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Соответствие стилям главной страницы */
+.hero-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    color: #343a40;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #F9B000;
+    margin: 15px auto 0;
 }
