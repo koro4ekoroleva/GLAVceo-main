@@ -22,7 +22,7 @@ menu = [
     {"name": "Помощь", "url": "help"},
     {"name": "Партнёры", "url": "partners"},
     {"name": "Документы", "url": "documents"},
-    {"name": "О нас", "url": ""}
+    {"name": "О нас", "url": "about"}
 ]
 
 
@@ -78,6 +78,9 @@ def partners():
 def documents():
     return render_template('documents.html', title="Документы", menu=menu)
 
+@app.route("/about")
+def about():
+    return render_template('about.html', title="О нас", menu=menu)
 
 def run_bot():
     logger.info("Бот запущен в отдельном потоке")
