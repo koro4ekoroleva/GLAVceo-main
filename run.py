@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 # Инициализация бота
 TELEGRAM_TOKEN = "7654476996:AAHF9AzcSWclTnGOavHy-tdqqkrmRf4bihY"
-CHAT_ID = '922226528'  # Убедитесь, что это правильный chat_id
+CHAT_ID = '6473127534'
 bot = TeleBot(TELEGRAM_TOKEN)
 
 # Инициализация Flask приложения
@@ -81,6 +81,30 @@ def documents():
 @app.route("/about")
 def about():
     return render_template('about.html', title="О нас", menu=menu)
+
+@app.route("/conferences")
+def conferences():
+    return render_template('conferences.html', title="Конференции", menu=menu)
+
+@app.route("/media")
+def media():
+    return render_template('media.html', title="СМИ", menu=menu)
+
+@app.route("/resources")
+def resources():
+    return render_template('resources.html', title="Ресурсы", menu=menu)
+
+@app.route("/networking")
+def networking():
+    return render_template('networking.html', title="Нетворкинг", menu=menu)
+
+@app.route("/social")
+def social():
+    return render_template('social.html', title="Социальные сети", menu=menu)
+
+@app.route("/feedback")
+def feedback():
+    return render_template('feedback.html', title="Обратная связь", menu=menu)
 
 def run_bot():
     logger.info("Бот запущен в отдельном потоке")

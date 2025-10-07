@@ -759,14 +759,16 @@ body {
     margin: 15px auto 0;
 }
 /* Стили для страницы О нас */
+/* Стили для страницы О нас с 6 плашками */
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на десктопе */
     gap: 25px;
     margin-top: 40px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    justify-items: center;
 }
 
 .about-card {
@@ -775,8 +777,11 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     height: 120px;
+    width: 100%;
+    max-width: 280px;
     display: flex;
     border: 3px solid #F9B000;
+    cursor: pointer; /* Показываем, что элемент кликабельный */
 }
 
 .about-card:hover {
@@ -817,59 +822,16 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Эффект нажатия */
-.about-card {
-    position: relative;
-}
-
-.about-card:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(249, 176, 0, 0.1);
-    border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.about-card:hover:after {
-    opacity: 1;
-}
-
-/* Анимация появления */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.about-card {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.about-card:nth-child(1) { animation-delay: 0.1s; }
-.about-card:nth-child(2) { animation-delay: 0.2s; }
-.about-card:nth-child(3) { animation-delay: 0.3s; }
-.about-card:nth-child(4) { animation-delay: 0.4s; }
-.about-card:nth-child(5) { animation-delay: 0.5s; }
-
-/* Адаптивность */
+/* Адаптивность для планшетов */
 @media (max-width: 992px) {
     .about-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        max-width: 800px;
     }
 
     .about-card {
         height: 110px;
+        max-width: 250px;
     }
 
     .about-name {
@@ -877,21 +839,24 @@ body {
     }
 }
 
-@media (max-width: 576px) {
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
     .about-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: 1fr; /* 1 колонка */
+        gap: 20px;
         max-width: 400px;
     }
 
     .about-card {
         height: 100px;
+        max-width: 300px;
     }
 
     .about-name {
         font-size: 1.1rem;
     }
 }
+
 
 /* Соответствие стилям главной страницы */
 .hero-section {
@@ -913,4 +878,20 @@ body {
     height: 4px;
     background: #F9B000;
     margin: 15px auto 0;
+}
+
+.max-img-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: -2px;
+}
+
+.content-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
 }
