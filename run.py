@@ -106,6 +106,15 @@ def social():
 def feedback():
     return render_template('feedback.html', title="Обратная связь", menu=menu)
 
+@app.route("/politics")
+def politics():
+    return render_template('politics.html', title="Политика в отношении обработки персональных данных", menu=menu)
+
+@app.route("/politics")
+def politics():
+    return render_template('politics.html', title="Политика в отношении обработки персональных данных", menu=menu)
+
+
 def run_bot():
     logger.info("Бот запущен в отдельном потоке")
     try:
