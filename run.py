@@ -108,11 +108,14 @@ def feedback():
 
 @app.route("/politics")
 def politics():
-    return render_template('politics.html', title="Политика в отношении обработки персональных данных", menu=menu)
+    return render_template('politics.html',
+                           title="Политика в отношении обработки персональных данных",
+                           menu=menu,
+                           site="glav-ceo.ru")
 
-@app.route("/politics")
-def politics():
-    return render_template('politics.html', title="Политика в отношении обработки персональных данных", menu=menu)
+@app.route("/approval")
+def approval():
+    return render_template('approval.html', title="Политика в отношении обработки персональных данных", menu=menu)
 
 
 def run_bot():
