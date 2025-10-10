@@ -8,9 +8,11 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', "7654476996:AAHF9AzcSWclTnGOavHy-tdqqkrmRf4bihY")
+CHAT_ID = os.environ.get('CHAT_ID', '922226528')
+PRODUCTION = os.environ.get('PRODUCTION', 'false') == 'true'
+
 # Инициализация бота
-TELEGRAM_TOKEN = "7654476996:AAHF9AzcSWclTnGOavHy-tdqqkrmRf4bihY"
-CHAT_ID = '6473127534'
 bot = TeleBot(TELEGRAM_TOKEN)
 
 # Инициализация Flask приложения
