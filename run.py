@@ -130,10 +130,22 @@ def run_bot():
 
 
 if __name__ == "__main__":
+    import os
+
+    # Запускаем бота только в продакшене
     if os.environ.get('PRODUCTION') == 'true':
         bot_thread = threading.Thread(target=run_bot)
         bot_thread.daemon = True
         bot_thread.start()
+        print("Бот запущен в отдельном потоке")
 
+    # Получаем порт из переменной окружения (для Timeweb Cloud)
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    print(f"Запуск приложения на порту {port}")
+
+    # Запускаем Flask
+    app.run(
+        host='0.0.0.0',
+        port=port,
+        debug=False
+    )
