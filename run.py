@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, render_template
 import threading
 from telebot import TeleBot
@@ -127,17 +128,10 @@ def run_bot():
 
 
 if __name__ == "__main__":
-    # Проверяем, что бот работает
-    try:
-        logger.info(f"Проверяем бота... ID: {bot.get_me().id}")
-    except Exception as e:
-        logger.error(f"Ошибка доступа к боту: {e}")
-        exit(1)
+    if os.environ.get('PRODUCTION') == 'true':
+        bot_thread = threading.Thread(target=run_bot)
+        bot_thread.daemon = True
+        bot_thread.start()
 
-    # Запускаем бота в отдельном потоке
-    bot_thread = threading.Thread(target=run_bot)
-    bot_thread.daemon = True
-    bot_thread.start()
-
-    # Запускаем Flask приложение
-    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
