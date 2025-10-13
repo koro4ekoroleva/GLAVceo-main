@@ -141,10 +141,21 @@
 
 
 {% endblock %}
-<div>
-    <a href="{{ url_for('politics') }}">Политика в отношении обработки персональных данных</a>
-    <a href="{{ url_for('approval') }}">Согласие на обработку персональных данных</a>
-</div>
+<footer class="main-header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link">Не является публичной офертой</a>
+                        <a class="nav-link" href="{{ url_for('politics') }}">Политика в отношении обработки персональных данных</a>
+                        <a class="nav-link" href="{{ url_for('approval') }}">Согласие на обработку персональных данных</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 <script>
