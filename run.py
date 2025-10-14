@@ -120,6 +120,9 @@ def politics():
 def approval():
     return render_template('approval.html', title="Политика в отношении обработки персональных данных", menu=menu)
 
+@app.route("/yandex_8c496becfe065fd4.html")
+def yandex():
+    return render_template('yandex_8c496becfe065fd4.html')
 
 def run_bot():
     logger.info("Бот запущен в отдельном потоке")
