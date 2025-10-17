@@ -1,16 +1,19 @@
 import os
 from flask import Flask, request, jsonify, render_template
+import requests
 import threading
 from telebot import TeleBot
 import logging
+
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', "7654476996:AAHF9AzcSWclTnGOavHy-tdqqkrmRf4bihY")
-CHAT_ID = os.environ.get('CHAT_ID', '922226528')
+CHAT_ID = os.environ.get('CHAT_ID', '6473127534')
 PRODUCTION = os.environ.get('PRODUCTION', 'false') == 'true'
+
 
 # Инициализация бота
 bot = TeleBot(TELEGRAM_TOKEN)
@@ -28,9 +31,24 @@ menu = [
     {"name": "О нас", "url": "about"}
 ]
 
+def verify_recaptcha(response_token):
+    secret_key = "6LfQcOwrAAAAAJ09P3XSslkwrwVQ-i-z4uDhN0mb"  # Получите в Google reCAPTCHA admin
+    data = {
+        'secret': secret_key,
+        'response': response_token
+    }
+    response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+    result = response.json()
+    return result.get('success', False)
+
+
 
 @app.route('/send-to-telegram', methods=['POST'])
 def send_to_telegram():
+    recaptcha_response = request.form.get('g-recaptcha-response')
+    if not recaptcha_response or not verify_recaptcha(recaptcha_response):
+        return jsonify({'status': 'error', 'message': 'Ошибка проверки reCAPTCHA'})
+
     try:
         data = request.form
         logger.info(f"Получены данные формы: {data}")
@@ -39,7 +57,7 @@ def send_to_telegram():
         message = (
             "📌 Новая заявка на консультацию:\n\n"
             f"👤 Имя: {data.get('name', 'не указано')}\n"
-            f"📞 Телефон: +7{data.get('phone')}\n"
+            f"📞 Телефон: {data.get('phone')}\n"
             f"📝 Комментарий: {data.get('comment', 'нет комментария')}"
         )
 
